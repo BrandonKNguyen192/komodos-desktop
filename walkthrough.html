@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The complete Komodos beta walkthrough — install, first recording, daily use, power features, keyboard shortcuts, and troubleshooting, all on one page.">
+<meta property="og:title" content="Komodos — Beta Tester Walkthrough">
+<meta property="og:description" content="From download to your first transcript, then every feature, shortcut, and tip worth knowing.">
+<meta property="og:type" content="article">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><rect x='3.5' y='3.5' width='41' height='41' rx='13' fill='%23fff' stroke='%23191C21' stroke-width='2.4'/><circle cx='24' cy='24' r='11.5' fill='none' stroke='%23C9CDD4' stroke-width='2.2'/><circle cx='24' cy='24' r='5.6' fill='%233d8a76'/></svg>">
+<title>Komodos — Beta Tester Walkthrough</title>
+<style>
+  :root {
+    --canvas:#F4F5F7;
+    --card:#FFFFFF;
+    --ink:#191C21;
+    --ink-2:#5A616B;
+    --ink-3:#8A909A;
+    --line:#E7E9EE;
+    --line-2:#D3D7DD;
+    --euc:#3d8a76;
+    --euc-bright:#4d9a84;
+    --euc-deep:#2f6f5e;
+    --euc-wash:#EAF2EE;
+    --euc-tint:#F1F7F4;
+    --amber:#B5842A;
+    --amber-wash:#FBF3E2;
+    --red:#B4453C;
+    --red-wash:#FBEDEC;
+    --radius:16px;
+    --radius-sm:10px;
+    --measure:68ch;
+    --serif:ui-serif,"New York",Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,sans-serif;
+    --mono:ui-monospace,"SF Mono","Menlo","Cascadia Code",monospace;
+  }
+
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+
+  body {
+    margin:0;
+    background:var(--canvas);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+
+  a { color:var(--euc-deep); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  :focus-visible { outline:2px solid var(--euc); outline-offset:3px; border-radius:4px; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position:relative;
+    overflow:hidden;
+    padding:88px 24px 64px;
+    background:
+      radial-gradient(120% 90% at 82% -10%, var(--euc-wash) 0%, rgba(234,242,238,0) 55%),
+      radial-gradient(100% 80% at 0% 0%, #FFFFFF 0%, rgba(255,255,255,0) 50%),
+      var(--canvas);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-inner { max-width:920px; margin:0 auto; }
+  .brandrow { display:flex; align-items:center; gap:12px; margin-bottom:34px; }
+  .mark { width:40px; height:40px; flex:none; }
+  .wordmark {
+    font-family:var(--mono);
+    font-size:15px;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    color:var(--ink);
+    font-weight:600;
+  }
+  .wordmark .sub { color:var(--ink-3); font-weight:500; }
+  .eyebrow {
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--euc);
+    margin:0 0 18px;
+    font-weight:600;
+  }
+  h1 {
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(2.4rem,6vw,3.9rem);
+    line-height:1.04;
+    letter-spacing:-.02em;
+    margin:0 0 22px;
+    max-width:16ch;
+    text-wrap:balance;
+  }
+  h1 em { font-style:italic; color:var(--euc-deep); }
+  .lede {
+    font-size:1.24rem;
+    line-height:1.55;
+    color:var(--ink-2);
+    max-width:52ch;
+    margin:0 0 32px;
+  }
+  .chips { display:flex; flex-wrap:wrap; gap:9px; }
+  .chip {
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:.02em;
+    color:var(--ink-2);
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:6px 13px;
+    display:inline-flex; align-items:center; gap:7px;
+  }
+  .chip .dot { width:7px; height:7px; border-radius:50%; background:var(--euc); }
+
+  /* ---------- Layout ---------- */
+  .wrap {
+    max-width:1040px;
+    margin:0 auto;
+    padding:56px 24px 96px;
+    display:grid;
+    grid-template-columns:210px minmax(0,1fr);
+    gap:56px;
+    align-items:start;
+  }
+  .toc { position:sticky; top:28px; font-size:14px; }
+  .toc-label {
+    font-family:var(--mono);
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--ink-3); margin:0 0 14px; padding-left:14px;
+  }
+  .toc ol { list-style:none; margin:0; padding:0; }
+  .toc li { margin:0; }
+  .toc a {
+    display:block;
+    color:var(--ink-2);
+    padding:5px 0 5px 14px;
+    border-left:2px solid var(--line);
+    line-height:1.35;
+  }
+  .toc a:hover { color:var(--ink); border-left-color:var(--euc); text-decoration:none; }
+  .toc .n { font-family:var(--mono); font-size:11.5px; color:var(--ink-3); margin-right:8px; }
+
+  main { max-width:var(--measure); min-width:0; }
+  section { margin:0 0 60px; scroll-margin-top:24px; }
+  section:last-child { margin-bottom:0; }
+
+  .kicker {
+    display:flex; align-items:baseline; gap:12px; margin:0 0 8px;
+  }
+  .kicker .num {
+    font-family:var(--mono); font-size:13px; font-weight:600;
+    color:var(--euc); letter-spacing:.04em;
+  }
+  h2 {
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:1.85rem;
+    line-height:1.15;
+    letter-spacing:-.015em;
+    margin:0 0 16px;
+    text-wrap:balance;
+  }
+  h3 {
+    font-size:1.06rem;
+    font-weight:650;
+    letter-spacing:-.005em;
+    margin:30px 0 6px;
+  }
+  p { margin:0 0 16px; }
+  main ul { margin:0 0 16px; padding-left:0; list-style:none; }
+  main ul li {
+    position:relative; padding-left:26px; margin:0 0 10px;
+  }
+  main ul li::before {
+    content:""; position:absolute; left:6px; top:.72em;
+    width:6px; height:6px; border-radius:50%; background:var(--euc); opacity:.75;
+  }
+  strong { font-weight:650; color:var(--ink); }
+
+  kbd {
+    font-family:var(--mono);
+    font-size:.82em;
+    background:var(--card);
+    border:1px solid var(--line-2);
+    border-bottom-width:2px;
+    border-radius:6px;
+    padding:2px 7px;
+    color:var(--ink);
+    white-space:nowrap;
+    box-shadow:0 1px 0 rgba(25,28,33,.02);
+  }
+  .path {
+    font-family:var(--mono); font-size:.86em;
+    color:var(--euc-deep); background:var(--euc-tint);
+    padding:1px 6px; border-radius:5px; white-space:nowrap;
+  }
+  code {
+    font-family:var(--mono); font-size:.86em;
+    background:#F0F1F4; padding:2px 6px; border-radius:5px; color:var(--ink);
+  }
+  pre {
+    font-family:var(--mono); font-size:13.5px; line-height:1.6;
+    background:var(--ink); color:#EDEFF2;
+    padding:16px 18px; border-radius:var(--radius-sm);
+    overflow-x:auto; margin:0 0 16px;
+  }
+  pre code { background:none; padding:0; color:inherit; }
+
+  /* ---------- Numbered step list ---------- */
+  .steps { counter-reset:step; margin:24px 0 8px; padding:0; list-style:none; }
+  .steps > li {
+    counter-increment:step;
+    position:relative;
+    padding:0 0 22px 52px;
+    margin:0;
+  }
+  .steps > li::before {
+    content:counter(step);
+    position:absolute; left:0; top:-2px;
+    width:32px; height:32px; border-radius:50%;
+    background:var(--euc); color:#fff;
+    font-family:var(--mono); font-size:14px; font-weight:600;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .steps > li::after {
+    content:""; position:absolute; left:15px; top:34px; bottom:2px;
+    width:2px; background:var(--line);
+  }
+  .steps > li:last-child::after { display:none; }
+  .steps > li p { margin:2px 0 0; }
+  .steps > li .st-h { font-weight:650; display:block; margin-bottom:2px; }
+
+  /* ---------- Callouts ---------- */
+  .note, .warn, .tip {
+    border-radius:var(--radius-sm);
+    padding:15px 18px 15px 18px;
+    margin:0 0 20px;
+    font-size:15.5px;
+    line-height:1.6;
+  }
+  .note { background:var(--euc-tint); }
+  .warn { background:var(--amber-wash); }
+  .tip  { background:#F4F5F7; border:1px solid var(--line); }
+  .co-label {
+    font-family:var(--mono); font-size:11px; font-weight:700;
+    letter-spacing:.14em; text-transform:uppercase;
+    display:inline-block; margin-bottom:5px;
+  }
+  .note .co-label { color:var(--euc-deep); }
+  .warn .co-label { color:var(--amber); }
+  .tip  .co-label { color:var(--ink-3); }
+  .note p:last-child, .warn p:last-child, .tip p:last-child { margin-bottom:0; }
+
+  /* ---------- Feature cards ---------- */
+  .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin:22px 0 8px; }
+  .fcard {
+    background:var(--card); border:1px solid var(--line);
+    border-radius:var(--radius-sm); padding:18px 18px 16px;
+  }
+  .fcard h4 {
+    margin:0 0 5px; font-size:1rem; font-weight:650; letter-spacing:-.005em;
+    display:flex; align-items:center; gap:9px;
+  }
+  .fcard .ic {
+    width:22px; height:22px; flex:none; color:var(--euc);
+  }
+  .fcard p { margin:0; font-size:14.5px; line-height:1.55; color:var(--ink-2); }
+  .fcard .where {
+    display:block; margin-top:9px;
+    font-family:var(--mono); font-size:11.5px; color:var(--ink-3);
+  }
+
+  /* ---------- Shortcut table ---------- */
+  .tbl-scroll { overflow-x:auto; margin:20px 0 8px; border:1px solid var(--line); border-radius:var(--radius-sm); }
+  table { width:100%; border-collapse:collapse; font-size:15px; min-width:460px; }
+  thead th {
+    text-align:left; font-family:var(--mono); font-size:11px; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--ink-3); font-weight:600;
+    padding:12px 16px; background:#FAFBFC; border-bottom:1px solid var(--line);
+  }
+  tbody td { padding:12px 16px; border-bottom:1px solid var(--line); vertical-align:top; }
+  tbody tr:last-child td { border-bottom:none; }
+  tbody td:first-child { white-space:nowrap; }
+  td .desc { color:var(--ink-2); font-size:14.5px; }
+
+  /* ---------- Divider / callout strip ---------- */
+  .bigtip {
+    background:var(--ink); color:#EDEFF2;
+    border-radius:var(--radius); padding:26px 26px;
+    margin:22px 0; display:flex; gap:18px; align-items:flex-start;
+  }
+  .bigtip .ic { width:26px; height:26px; flex:none; color:var(--euc-bright); margin-top:2px; }
+  .bigtip h3 { margin:0 0 6px; color:#fff; font-size:1.1rem; }
+  .bigtip p { margin:0; color:#B9BEC7; font-size:15px; }
+  .bigtip .path { background:rgba(77,154,132,.2); color:#8fd3bf; }
+  .bigtip kbd { background:#2A2E35; border-color:#3a3f47; color:#EDEFF2; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top:1px solid var(--line);
+    padding:44px 24px 72px; text-align:center;
+    color:var(--ink-3); font-size:14px;
+  }
+  footer .fmark { width:30px; height:30px; margin:0 auto 14px; display:block; }
+  footer p { max-width:56ch; margin:0 auto 8px; }
+
+  @media (max-width: 860px) {
+    .wrap { grid-template-columns:1fr; gap:0; padding:40px 22px 72px; }
+    .toc { display:none; }
+    .grid { grid-template-columns:1fr; }
+    .hero { padding:64px 22px 48px; }
+  }
+
+  /* ---------- Print / PDF ---------- */
+  @media print {
+    @page { size:letter; margin:15mm 16mm; }
+    body { background:#fff; font-size:11.5pt; }
+    .hero {
+      padding:0 0 22px; margin-bottom:8px; border-bottom:1px solid var(--line);
+      background:var(--canvas);
+    }
+    .hero-inner { max-width:none; }
+    h1 { font-size:2.3rem; max-width:none; }
+    .lede { font-size:1.05rem; max-width:none; }
+    .wrap { display:block; max-width:none; padding:22px 0 0; }
+    .toc { display:none; }
+    main { max-width:none; }
+    .grid { grid-template-columns:1fr 1fr; gap:10px; }
+    section { margin-bottom:26px; }
+    h2 { font-size:1.5rem; break-after:avoid; }
+    h3 { break-after:avoid; }
+    p, li { orphans:3; widows:3; }
+    .fcard, .note, .warn, .tip, .bigtip, .tbl-scroll, table, pre { break-inside:avoid; }
+    .steps > li { break-inside:avoid; }
+    .bigtip { background:var(--ink); }
+    a { color:var(--euc-deep); }
+    footer { padding:24px 0 0; break-inside:avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="brandrow">
+      <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect x="3.5" y="3.5" width="41" height="41" rx="13" fill="#fff" stroke="#191C21" stroke-width="2.4"/>
+        <circle cx="24" cy="24" r="11.5" fill="none" stroke="#C9CDD4" stroke-width="2.2"/>
+        <circle cx="24" cy="24" r="5.6" fill="#3d8a76"/>
+      </svg>
+      <div class="wordmark">Komodos <span class="sub">Desktop&nbsp;Recorder</span></div>
+    </div>
+    <p class="eyebrow">Beta tester walkthrough</p>
+    <h1>Your meetings, remembered — <em>privately.</em></h1>
+    <p class="lede">Komodos records both sides of a call, transcribes them right on your Mac, and lets you search and ask questions across everything you've ever recorded. This guide takes you from download to your first transcript, then shows you the good stuff.</p>
+    <div class="chips">
+      <span class="chip"><span class="dot"></span>Apple Silicon</span>
+      <span class="chip"><span class="dot"></span>macOS 14.2+</span>
+      <span class="chip"><span class="dot"></span>Local-first · nothing leaves your Mac</span>
+      <span class="chip"><span class="dot"></span>~10 min to first transcript</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <nav class="toc" aria-label="Contents">
+    <p class="toc-label">Contents</p>
+    <ol>
+      <li><a href="#what"><span class="n">00</span>What it is</a></li>
+      <li><a href="#requirements"><span class="n">01</span>Before you start</a></li>
+      <li><a href="#install"><span class="n">02</span>Install</a></li>
+      <li><a href="#firstlaunch"><span class="n">03</span>First launch</a></li>
+      <li><a href="#record"><span class="n">04</span>First recording</a></li>
+      <li><a href="#dailyloop"><span class="n">05</span>The daily loop</a></li>
+      <li><a href="#power"><span class="n">06</span>Make it yours</a></li>
+      <li><a href="#shortcuts"><span class="n">07</span>Tips &amp; shortcuts</a></li>
+      <li><a href="#trouble"><span class="n">08</span>When it looks wrong</a></li>
+      <li><a href="#report"><span class="n">09</span>Report a problem</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <section id="what">
+      <div class="kicker"><span class="num">00</span></div>
+      <h2>What Komodos actually does</h2>
+      <p>Komodos lives in your Mac's <strong>menu bar</strong> (not the Dock). When you're on a call, it captures <strong>two tracks at once</strong> — the other people (your Mac's system audio) and you (your microphone) — so the whole conversation gets transcribed, not just your half.</p>
+      <p>The rhythm you'll fall into is three steps: <strong>record → transcribe → ask.</strong> You record a meeting, Komodos writes it up on-device with speaker labels and a summary, and then you can ask questions about one meeting or across your entire history — with clickable citations back to the exact moment someone said it.</p>
+      <div class="note">
+        <span class="co-label">The privacy part</span>
+        <p>Everything runs on your Mac by default — recording, transcription, and AI all happen locally. Cloud features (a specific AI model, OneDrive backup, calendar) are clearly labeled and <strong>off</strong> until you turn them on. There's even an <strong>Offline</strong> switch that hard-blocks all network access if you want a guarantee.</p>
+      </div>
+    </section>
+
+    <section id="requirements">
+      <div class="kicker"><span class="num">01</span></div>
+      <h2>Before you start</h2>
+      <p>A 60-second check so nothing surprises you:</p>
+      <ul>
+        <li><strong>Apple Silicon Mac</strong> (M1 or newer). Intel Macs aren't supported — don't try to force it, just tell me.</li>
+        <li><strong>macOS 14.2 (Sonoma) or newer.</strong> A couple of features (live captions &amp; translation) need <strong>macOS 26</strong>; everything else works on 14.2+.</li>
+        <li><strong>~5–8 GB free disk</strong> for the on-device AI models it downloads the first time you transcribe.</li>
+        <li>You'll grant <strong>Microphone</strong> and <strong>System Audio Recording</strong> permissions on first launch — that's what lets it hear both sides.</li>
+      </ul>
+    </section>
+
+    <section id="install">
+      <div class="kicker"><span class="num">02</span></div>
+      <h2>Install</h2>
+      <ol class="steps">
+        <li><span class="st-h">Download the app</span><p>Open <strong>Komodos&nbsp;Desktop&nbsp;Recorder.dmg</strong> from the link I sent you.</p></li>
+        <li><span class="st-h">Drag it to Applications</span><p>In the window that opens, drag the Komodos icon onto the <strong>Applications</strong> folder.</p></li>
+        <li><span class="st-h">Open it</span><p>Launch <strong>Komodos Desktop Recorder</strong> from Applications or Launchpad. Look for the record icon up near the clock — that's home.</p></li>
+      </ol>
+      <div class="warn">
+        <span class="co-label">One-time approval — this is normal</span>
+        <p>The app is signed with an Apple Developer ID and <strong>notarized by Apple</strong> (Apple scanned this exact build and confirmed it's clean). But because you downloaded it from the web instead of the App Store, macOS still asks you to confirm the <strong>first</strong> time. It does not mean anything is wrong.</p>
+        <p style="margin-top:12px"><strong>On macOS 15 (Sequoia)</strong> you'll see <em>"Apple could not verify… is free of malware."</em> Click <strong>Done</strong> (not <em>Move to Trash</em>), then open <span class="path">System&nbsp;Settings ▸ Privacy&nbsp;&amp;&nbsp;Security</span>, scroll to <strong>Security</strong>, and click <strong>Open Anyway</strong> → authenticate → <strong>Open Anyway</strong> once more. It never asks again.</p>
+        <p style="margin-top:12px"><strong>On macOS 14 (Sonoma)</strong> it's quicker: <strong>right-click</strong> the app in Applications → <strong>Open</strong> → <strong>Open</strong>. One time only.</p>
+        <p style="margin-top:12px">If there's no <strong>Open Anyway</strong> button, open <strong>Terminal</strong> and paste this, then open the app normally:</p>
+        <pre><code>xattr -dr com.apple.quarantine "/Applications/Komodos Desktop Recorder.app"</code></pre>
+        <p style="margin-top:8px">If macOS instead says the app is <strong>"damaged,"</strong> don't force it — tell me and I'll re-cut the build.</p>
+      </div>
+    </section>
+
+    <section id="firstlaunch">
+      <div class="kicker"><span class="num">03</span></div>
+      <h2>First launch — what to expect</h2>
+      <ol class="steps">
+        <li><span class="st-h">Grant permissions</span><p>Komodos asks for <strong>Microphone</strong> and <strong>System Audio Recording</strong> (and <strong>Speech Recognition</strong> if you'll use live captions). Grant them — it genuinely can't record without them. Missed one? Add it later in <span class="path">System&nbsp;Settings ▸ Privacy&nbsp;&amp;&nbsp;Security</span>, or from the menu bar's <strong>"Grant Mic&nbsp;+&nbsp;System-Audio Permission"</strong> button.</p></li>
+        <li><span class="st-h">Pick a transcription engine</span><p>You'll get a <strong>"Set up transcription"</strong> card that recommends one for your Mac's RAM. The default is fine — <strong>Qwen3-ASR</strong> is most accurate (wants ~18&nbsp;GB+ RAM), <strong>Whisper</strong> is lighter and faster on smaller Macs.</p></li>
+        <li><span class="st-h">Let the first model download</span><p>A one-time model download (a few GB) starts in the background. <strong>Your first transcription will be slow while this finishes</strong> — that's expected, not a hang. Everything after it is fast.</p></li>
+      </ol>
+      <div class="tip">
+        <span class="co-label">Tip</span>
+        <p>Open the dashboard any time from the menu bar → <strong>Open Dashboard</strong>. That window is where your recordings, transcripts, summaries, notebooks, and settings live.</p>
+      </div>
+    </section>
+
+    <section id="record">
+      <div class="kicker"><span class="num">04</span></div>
+      <h2>Your first recording</h2>
+      <ol class="steps">
+        <li><span class="st-h">Open the menu-bar panel</span><p>Click the <strong>record icon</strong> in the top-right menu bar to open Komodos's panel.</p></li>
+        <li><span class="st-h">Choose what to capture</span><p>Expand <strong>Recording source</strong> and set <strong>Capture</strong> to <em>All system audio (every participant)</em> or scope it to just one app — <em>Only Zoom / Teams / Meet / FaceTime</em>. Apps currently making sound show a 🔊. Scope to one app when you don't want music or notifications bleeding in.</p></li>
+        <li><span class="st-h">Start</span><p>Click <strong>Start Recording</strong> — or just press <kbd>⌘R</kbd> while the panel is open. A red dot and timer appear.</p></li>
+        <li><span class="st-h">Confirm both sides are landing</span><p>Watch the floating pill: the <strong>MIC</strong> and <strong>SYS</strong> meters should <em>both</em> light up. If only one moves, you're missing a permission — grant it and restart the take.</p></li>
+        <li><span class="st-h">Stop &amp; transcribe</span><p>Click <strong>Stop &amp; Transcribe</strong> (the same button, now relabeled) — or press <kbd>⌘S</kbd>. Komodos transcribes on-device; a <strong>"Processing on device"</strong> bar shows the stages (Transcribing → Aligning → Diarizing).</p></li>
+        <li><span class="st-h">Read it</span><p>Open the finished recording from the <strong>Recordings</strong> list to see the transcript, speaker labels, timestamps, and (if auto-summary is on) a summary.</p></li>
+      </ol>
+      <div class="tip">
+        <span class="co-label">Don't want to save it?</span>
+        <p>Under <strong>Recording source</strong>, turn <strong>Save recording</strong> off. The button becomes <strong>Start Live Captions</strong> and <em>nothing</em> is written to disk — handy for privately translating a call or video in the moment.</p>
+      </div>
+    </section>
+
+    <section id="dailyloop">
+      <div class="kicker"><span class="num">05</span></div>
+      <h2>The daily loop</h2>
+      <p>Once a recording exists, here's what you'll reach for most. Everything below is in the dashboard.</p>
+      <div class="grid">
+        <div class="fcard">
+          <h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>Click-to-seek transcript</h4>
+          <p>Hold <kbd>⌘</kbd> and click any word to jump the audio there. During playback the current word highlights karaoke-style.</p>
+          <span class="where">Recording → Transcript</span>
+        </div>
+        <div class="fcard">
+          <h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg>Rename speakers</h4>
+          <p>Turn <em>Speaker 1 / Speaker 2</em> into real names. Open a recording → <strong>⋯</strong> menu → <strong>Rename Speakers</strong>.</p>
+          <span class="where">Recording → ⋯ → Rename Speakers</span>
+        </div>
+        <div class="fcard">
+          <h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>AI summary</h4>
+          <p>Open a recording → <strong>⋯</strong> → <strong>AI Summary</strong>. Pick a template, watch it stream in, then Copy / Download / Share it.</p>
+          <span class="where">Recording → ⋯ → AI Summary</span>
+        </div>
+        <div class="fcard">
+          <h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Chat with one recording</h4>
+          <p>Click <strong>Chat</strong> on a recording and ask "What were the action items?" Answers are grounded only in that meeting.</p>
+          <span class="where">Recording → Chat</span>
+        </div>
+        <div class="fcard">
+          <h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>Perfect Memory</h4>
+          <p>The <strong>Memory</strong> tab answers questions across <em>everything</em> you've recorded, with citations you click to jump to the moment. Press <kbd>⌘Enter</kbd> to ask.</p>
+          <span class="where">Sidebar → Memory</span>
+        </div>
+        <div class="fcard">
+          <h4><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>Notebooks + Studio</h4>
+          <p>Group recordings &amp; docs into a notebook, then generate an <strong>Audio Overview</strong> (two-host podcast recap), <strong>Briefing</strong>, <strong>Timeline</strong>, or <strong>Mind Map</strong> — all on-device.</p>
+          <span class="where">Sidebar → Notebooks → Studio</span>
+        </div>
+      </div>
+      <div class="note">
+        <span class="co-label">More ways in</span>
+        <p>The <strong>+</strong> button on the Recordings page also lets you <strong>Upload files</strong>, drop a <strong>YouTube URL</strong>, do a fast <strong>Quick Transcribe</strong> (not saved to your library — copy it before closing), or record from the dashboard directly. You can also drag-and-drop audio anywhere onto the page.</p>
+      </div>
+    </section>
+
+    <section id="power">
+      <div class="kicker"><span class="num">06</span></div>
+      <h2>Make it yours</h2>
+      <p>None of these are required for daily use, but they're where Komodos gets interesting. Most live in <span class="path">Settings</span> in the dashboard; some are in the menu-bar app. A few sync between the two within ~15 seconds.</p>
+
+      <h3>Privacy &amp; AI</h3>
+      <ul>
+        <li><strong>Offline / Online mode.</strong> Offline is a <em>hard</em> egress guard, not a preference — with it on, backups, calendar, recap email, remote access, and cloud AI all refuse and show an amber "go Online" banner. Recordings are <strong>always</strong> transcribed locally either way.</li>
+        <li><strong>On-device vs cloud AI.</strong> Summaries and chat use the private bundled model by default. You can bring your own key (LM&nbsp;Studio, OpenAI, NVIDIA) under <span class="path">Settings ▸ LLMs</span> — cloud providers show an explicit "your transcripts leave your Mac" warning and are blocked in Offline mode.</li>
+        <li><strong>Performance mode</strong> (Balanced · High · Auto) under <span class="path">Settings ▸ Transcription</span> trades transcription speed against keeping the rest of your Mac snappy. Applies to your <em>next</em> recording.</li>
+      </ul>
+
+      <h3>Look &amp; reach</h3>
+      <ul>
+        <li><strong>10 themes + accent.</strong> The theme icon in the top bar switches between bright-white, warm Paper, Ink, and frosted-glass dark variants, and recolors the accent. Saved per-device in your browser.</li>
+        <li><strong>Remote access over Tailscale.</strong> Put your otherwise-offline Mac on your <em>private</em> tailnet so your phone can read notes and record new ones — never exposed to the public internet. Needs the free Tailscale app installed and an explicit "my data will leave this device" acknowledgement.</li>
+      </ul>
+
+      <h3>Don't lose your history</h3>
+      <ul>
+        <li><strong>Encrypted cloud backups.</strong> Connect OneDrive or Google Drive, then <span class="path">Settings ▸ Desktop&nbsp;App ▸ Encrypted&nbsp;DB&nbsp;backup</span> nightly copies an age-encrypted snapshot off your Mac. Online-only; the health card goes red if a backup is stale.</li>
+      </ul>
+      <div class="bigtip">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <div>
+          <h3>Save your backup recovery key the moment you see the amber nag</h3>
+          <p>Backups are encrypted and can <strong>only</strong> be decrypted with your recovery key. Click <strong>Reveal recovery key</strong> → <strong>Copy</strong> → paste it into your password manager. The key lives only on this Mac — a lost Mac plus an unsaved key means the history is gone for good.</p>
+        </div>
+      </div>
+
+      <h3>Meetings &amp; automation</h3>
+      <ul>
+        <li><strong>Auto-detect calls.</strong> When your mic and speakers are both live, Komodos pops a one-click "Record this call?" so you never forget. App-agnostic; it deliberately ignores dictation tools like Wispr Flow.</li>
+        <li><strong>Calendar + meeting prep.</strong> Connect Outlook or Google Calendar and a "Coming up" panel appears with AI prep briefs drawn from your past recordings. Optional <strong>pre-meeting push</strong> (via the ntfy app) and <strong>auto-recap emails</strong> after each recording.</li>
+        <li><strong>Launch at login</strong> keeps it always ready in the menu bar. <strong>Check for Updates</strong> pulls the latest build — DMG testers should use this button, since the plain DMG doesn't self-update.</li>
+      </ul>
+      <div class="note">
+        <span class="co-label">Good news for beta testers</span>
+        <p>In this build, <strong>all Pro features are unlocked and free</strong> — encrypted backup, remote access, and the full Studio. No license key needed.</p>
+      </div>
+    </section>
+
+    <section id="shortcuts">
+      <div class="kicker"><span class="num">07</span></div>
+      <h2>Tips &amp; shortcuts</h2>
+
+      <h3>Worth knowing</h3>
+      <ul>
+        <li><strong>Grant <em>both</em> Microphone and System Audio Recording.</strong> A missing permission silently drops one side of the conversation — the single most common first-run gotcha.</li>
+        <li><strong>The first transcription is slow, then fast forever.</strong> That's the one-time model download, not a stuck app.</li>
+        <li><strong>Turn on semantic search</strong> (the green dot on the Memory page) before judging Perfect Memory — without it, recall falls back to keyword-only.</li>
+        <li><strong>Don't switch the embedding model mid-demo</strong> — it re-indexes your whole history and search is degraded until it finishes.</li>
+        <li><strong>An orange banner on a recording card</strong> means that take was cut short (e.g. disk full), not stopped cleanly — so you can tell it apart from a good one.</li>
+        <li><strong>Live captions &amp; translation need macOS 26.</strong> On Sonoma/Sequoia the section just says it's unavailable.</li>
+      </ul>
+
+      <h3>Keyboard shortcuts</h3>
+      <div class="tbl-scroll">
+        <table>
+          <thead><tr><th>Keys</th><th>Does</th><th>Where</th></tr></thead>
+          <tbody>
+            <tr><td><kbd>⌘R</kbd></td><td class="desc">Start recording</td><td class="desc">Menu-bar panel (while it's open)</td></tr>
+            <tr><td><kbd>⌘S</kbd></td><td class="desc">Stop &amp; transcribe</td><td class="desc">Menu-bar panel, while recording</td></tr>
+            <tr><td><kbd>⌘</kbd> + click</td><td class="desc">Seek audio to a transcript word</td><td class="desc">Recording transcript</td></tr>
+            <tr><td><kbd>⌘Enter</kbd></td><td class="desc">Ask your memory / save a note</td><td class="desc">Memory ask box &amp; note editor</td></tr>
+            <tr><td><kbd>Shift</kbd> + click</td><td class="desc">Range-select recordings for bulk actions</td><td class="desc">Recordings list</td></tr>
+            <tr><td><kbd>⌘R</kbd></td><td class="desc">Reload the dashboard</td><td class="desc">Dashboard window (different window from the panel)</td></tr>
+            <tr><td><kbd>⌘Q</kbd></td><td class="desc">Quit Komodos</td><td class="desc">Menu-bar panel / app menu</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tip">
+        <span class="co-label">On iPhone / iPad</span>
+        <p>There's no global start-recording hotkey on the Mac (⌘R only works inside the open panel). The true one-press start is the <strong>Action Button</strong>: <span class="path">Settings ▸ Action&nbsp;Button ▸ Komodos</span> → <strong>"Start Komodos Recording."</strong> It also works via Siri, Spotlight, and Shortcuts.</p>
+      </div>
+    </section>
+
+    <section id="trouble">
+      <div class="kicker"><span class="num">08</span></div>
+      <h2>When something looks wrong</h2>
+      <ul>
+        <li><strong>"Apple could not verify… free of malware" on install</strong> → normal for a notarized web download. Follow the <a href="#install">Gatekeeper steps above</a> (Open Anyway). You only do it once.</li>
+        <li><strong>macOS says the app is "damaged"</strong> → don't force it. Tell me and I'll re-cut the build.</li>
+        <li><strong>Only one of MIC / SYS lights up</strong> → a permission is missing. Grant Microphone <em>and</em> System Audio Recording, then start a new take.</li>
+        <li><strong>The dashboard "Record" button won't record</strong> → the menu-bar Mac app isn't running or connected. Open it first; the button nudges you when it can't reach it.</li>
+        <li><strong>First transcription seems stuck</strong> → it's the one-time model download finishing in the background. Give it a few minutes; it's fast after that.</li>
+        <li><strong>A cloud feature refuses with an amber banner</strong> → you're in Offline mode. Flip to Online (that guard is working as designed).</li>
+      </ul>
+    </section>
+
+    <section id="report">
+      <div class="kicker"><span class="num">09</span></div>
+      <h2>Report a problem</h2>
+      <p>Komodos keeps <strong>nothing about you on any server</strong> — so if something breaks, I can't see it unless you tell me. When it does:</p>
+      <p><strong><span class="path">Help ▸ Report a Problem…</span></strong> (in the menu bar when the app is focused).</p>
+      <p>It drops a <strong>Komodos-report-….zip</strong> on your Desktop with app logs and your Mac's specs — <strong>no recordings, transcripts, or passwords</strong>. Send that zip with a sentence about what happened. That's usually enough to pin the bug. Screenshots are gold.</p>
+      <div class="warn">
+        <span class="co-label">One responsibility</span>
+        <p>Komodos records the other people on a call, not just you. <strong>Please get their consent before recording</strong> — some places legally require it. A good default: say at the start that you're recording. Your recordings stay on your Mac.</p>
+      </div>
+      <p style="margin-top:24px;color:var(--ink-2)">Thanks for kicking the tires. The rough edges you find in the first ten minutes are exactly what makes this better. 🦎</p>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <svg class="fmark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+    <rect x="3.5" y="3.5" width="41" height="41" rx="13" fill="#fff" stroke="#191C21" stroke-width="2.4"/>
+    <circle cx="24" cy="24" r="11.5" fill="none" stroke="#C9CDD4" stroke-width="2.2"/>
+    <circle cx="24" cy="24" r="5.6" fill="#3d8a76"/>
+  </svg>
+  <p><strong>Komodos Desktop Recorder</strong> — a local-first meeting recorder for Apple Silicon.</p>
+  <p>Runs on your Mac. Your recordings and transcripts never leave it unless you choose.</p>
+</footer>
+</body>
+</html>
