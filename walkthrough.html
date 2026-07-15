@@ -379,11 +379,12 @@
       <li><a href="#install"><span class="n">02</span>Install</a></li>
       <li><a href="#firstlaunch"><span class="n">03</span>First launch</a></li>
       <li><a href="#record"><span class="n">04</span>First recording</a></li>
-      <li><a href="#dailyloop"><span class="n">05</span>The daily loop</a></li>
-      <li><a href="#power"><span class="n">06</span>Make it yours</a></li>
-      <li><a href="#shortcuts"><span class="n">07</span>Tips &amp; shortcuts</a></li>
-      <li><a href="#trouble"><span class="n">08</span>When it looks wrong</a></li>
-      <li><a href="#report"><span class="n">09</span>Report a problem</a></li>
+      <li><a href="#timing"><span class="n">05</span>Transcription speed</a></li>
+      <li><a href="#dailyloop"><span class="n">06</span>The daily loop</a></li>
+      <li><a href="#power"><span class="n">07</span>Make it yours</a></li>
+      <li><a href="#shortcuts"><span class="n">08</span>Tips &amp; shortcuts</a></li>
+      <li><a href="#trouble"><span class="n">09</span>When it looks wrong</a></li>
+      <li><a href="#report"><span class="n">10</span>Report a problem</a></li>
     </ol>
   </nav>
 
@@ -461,8 +462,36 @@
       </div>
     </section>
 
-    <section id="dailyloop">
+    <section id="timing">
       <div class="kicker"><span class="num">05</span></div>
+      <h2>How long does transcription take?</h2>
+      <p>It all happens on your Mac, <strong>faster than real time</strong> — a meeting is ready to read minutes after you stop, not after it plays back start to finish. Two things set the pace:</p>
+      <ul>
+        <li><strong>Which engine.</strong> Balanced mode — the default — runs <strong>Whisper&#8209;turbo</strong>, the fast one. High Performance runs <strong>Qwen3&#8209;ASR</strong>, which is more accurate but roughly 1.5–2&#215; slower. <strong>Balanced/Whisper is the default on every Mac;</strong> Qwen3&#8209;ASR is the accuracy upgrade you switch on.</li>
+        <li><strong>Which Mac.</strong> More GPU cores and memory bandwidth = faster; a fanless MacBook&nbsp;Air also eases off a little under sustained load.</li>
+      </ul>
+      <p>Rough time to transcribe a <strong>1&#8209;hour recording</strong> (speaker labeling adds only tens of seconds on top — a bit more on slower Macs):</p>
+      <div class="tbl-scroll">
+        <table>
+          <thead><tr><th>Your Mac</th><th>Whisper &middot; Balanced (default)</th><th>Qwen3&#8209;ASR &middot; High&nbsp;Performance</th></tr></thead>
+          <tbody>
+            <tr><td>M3&nbsp;Ultra &middot; 96&nbsp;GB<span style="display:inline-block;margin-left:7px;padding:1px 8px;border-radius:999px;background:var(--euc-wash);color:var(--euc-deep);font-family:var(--mono);font-size:10px;letter-spacing:.06em;vertical-align:middle;">MEASURED</span></td><td class="desc">~1.5&nbsp;min</td><td class="desc">~2.5&nbsp;min</td></tr>
+            <tr><td>M5&nbsp;Pro&nbsp;/&nbsp;Max&nbsp;<sup>*</sup></td><td class="desc">~3–5&nbsp;min</td><td class="desc">~5–8&nbsp;min</td></tr>
+            <tr><td>M1&nbsp;Pro &middot; 16&nbsp;GB</td><td class="desc">~5–9&nbsp;min</td><td class="desc">~9–15&nbsp;min&nbsp;<sup>&#8225;</sup></td></tr>
+            <tr><td>M4&nbsp;MacBook&nbsp;Air</td><td class="desc">~5–10&nbsp;min</td><td class="desc">~12–20&nbsp;min&nbsp;<sup>&#8225;</sup></td></tr>
+            <tr><td>M1&nbsp;MacBook&nbsp;Air</td><td class="desc">~8–15&nbsp;min</td><td class="desc">stays on Whisper</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:14px; color:var(--ink-3); line-height:1.55">Only the M3&nbsp;Ultra row is <strong>measured</strong> (timed on that exact chip); the rest are estimates that scale with GPU cores (Whisper) and memory bandwidth (Qwen), so treat them as ballpark. <sup>*</sup>&nbsp;M5 is the newest silicon — projected; a base M5 (no Pro/Max) stays on Whisper like the Airs. <sup>&#8225;</sup>&nbsp;Not the auto&#8209;pick on that Mac: Qwen3&#8209;ASR wants a Pro/Max/Ultra with 18&nbsp;GB+, so even in High Performance these stay on Whisper — the Qwen figure is if you force it in Settings, and it runs tighter there.</p>
+      <div class="note">
+        <span class="co-label">Which should you pick?</span>
+        <p>Leave it on <strong>Balanced (Whisper)</strong> for speed and a responsive Mac — it's excellent for the vast majority of meetings. Switch to <strong>High&nbsp;Performance (Qwen3&#8209;ASR)</strong> when you want the most accurate transcript — dense jargon, strong accents, lots of names — and you're on a Pro/Max/Ultra that's plugged in. One caveat either way: the <strong>first&#8209;ever</strong> transcription is slower while the model downloads once; every time above is the steady state after that.</p>
+      </div>
+    </section>
+
+    <section id="dailyloop">
+      <div class="kicker"><span class="num">06</span></div>
       <h2>The daily loop</h2>
       <p>Once a recording exists, here's what you'll reach for most. Everything below is in the dashboard.</p>
       <div class="grid">
@@ -504,7 +533,7 @@
     </section>
 
     <section id="power">
-      <div class="kicker"><span class="num">06</span></div>
+      <div class="kicker"><span class="num">07</span></div>
       <h2>Make it yours</h2>
       <p>None of these are required for daily use, but they're where Komodos gets interesting. Most live in <span class="path">Settings</span> in the dashboard; some are in the menu-bar app. A few sync between the two within ~15 seconds.</p>
 
@@ -546,7 +575,7 @@
     </section>
 
     <section id="shortcuts">
-      <div class="kicker"><span class="num">07</span></div>
+      <div class="kicker"><span class="num">08</span></div>
       <h2>Tips &amp; shortcuts</h2>
 
       <h3>Worth knowing</h3>
@@ -581,7 +610,7 @@
     </section>
 
     <section id="trouble">
-      <div class="kicker"><span class="num">08</span></div>
+      <div class="kicker"><span class="num">09</span></div>
       <h2>When something looks wrong</h2>
       <ul>
         <li><strong>"Apple could not verify… free of malware" on install</strong> → normal for a notarized web download. Follow the <a href="#install">Gatekeeper steps above</a> (Open Anyway). You only do it once.</li>
@@ -594,7 +623,7 @@
     </section>
 
     <section id="report">
-      <div class="kicker"><span class="num">09</span></div>
+      <div class="kicker"><span class="num">10</span></div>
       <h2>Report a problem</h2>
       <p>Komodos keeps <strong>nothing about you on any server</strong> — so if something breaks, I can't see it unless you tell me. When it does:</p>
       <p><strong><span class="path">Help ▸ Report a Problem…</span></strong> (in the menu bar when the app is focused).</p>
