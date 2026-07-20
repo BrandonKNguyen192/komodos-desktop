@@ -3,13 +3,13 @@
     <channel>
         <title>Komodos Desktop Recorder</title>
         <item>
-            <title>0.2.2</title>
-            <pubDate>Sat, 11 Jul 2026 08:14:15 -0700</pubDate>
+            <title>0.3.0</title>
+            <pubDate>Mon, 20 Jul 2026 14:11:15 -0700</pubDate>
             <sparkle:version>4</sparkle:version>
-            <sparkle:shortVersionString>0.2.2</sparkle:shortVersionString>
+            <sparkle:shortVersionString>0.3.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.2</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <enclosure url="https://brandonknguyen192.github.io/komodos-desktop/Komodos-Desktop-Recorder.dmg" length="57427326" type="application/octet-stream" sparkle:edSignature="kBV0sNncd2ny2hMOoOPf206lgjFj+pdx2YWi8KUUP/Yg2+8hQYYcjkuzP9/XeYDdAB+i97lQkbe2XH9DgEQ2CQ=="/>
+            <enclosure url="https://brandonknguyen192.github.io/komodos-desktop/Komodos-Desktop-Recorder.dmg" sparkle:edSignature="ZUnL8j0/j/v5y5QCR36fInxWL3J9/0Rmwu6ntpUUdbcauRmmFndUryYKj7lsMtOJOXhXh9axImWBws+ffAZlBQ==" length="58142857" type="application/octet-stream"/>
         </item>
     </channel>
 </rss>
