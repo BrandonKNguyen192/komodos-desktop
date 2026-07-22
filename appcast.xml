@@ -3,13 +3,23 @@
     <channel>
         <title>Komodos Desktop Recorder</title>
         <item>
-            <title>0.3.0</title>
-            <pubDate>Mon, 20 Jul 2026 14:11:15 -0700</pubDate>
-            <sparkle:version>4</sparkle:version>
-            <sparkle:shortVersionString>0.3.0</sparkle:shortVersionString>
+            <title>0.4.0</title>
+            <pubDate>Wed, 22 Jul 2026 14:35:38 -0700</pubDate>
+            <description><![CDATA[
+<h3>What&#39;s new in 0.4.0</h3>
+<ul>
+<li><b>Instant draft transcripts</b> — recordings are readable seconds after you hit Stop, then replaced automatically by the accurate transcript.</li>
+<li><b>Live processing view</b> — watch transcription, speaker detection, summary and more happen in real time.</li>
+<li><b>Cleaner output everywhere</b> — summaries and recaps render with real headings, lists and tables; transcripts show speaker turns with clickable timestamps; set your own name for the &quot;Me&quot; speaker.</li>
+<li><b>Recording reliability</b> — fixes for two crashes and a Bluetooth-related freeze; the recorder now auto-selects a real microphone when your default input is virtual (e.g. BlackHole) or Bluetooth.</li>
+<li>Faster, lighter uploads and an under-the-hood reliability program (tuned for 24&#8239;GB Macs).</li>
+</ul>
+]]></description>
+            <sparkle:version>5</sparkle:version>
+            <sparkle:shortVersionString>0.4.0</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.2</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <enclosure url="https://brandonknguyen192.github.io/komodos-desktop/Komodos-Desktop-Recorder.dmg" sparkle:edSignature="ZUnL8j0/j/v5y5QCR36fInxWL3J9/0Rmwu6ntpUUdbcauRmmFndUryYKj7lsMtOJOXhXh9axImWBws+ffAZlBQ==" length="58142857" type="application/octet-stream"/>
+            <enclosure url="https://brandonknguyen192.github.io/komodos-desktop/Komodos-Desktop-Recorder.dmg" length="58232077" type="application/octet-stream" sparkle:edSignature="twcr11zbBZ42rAVrgZprMOnxYWdBVECve0JRXhXIpmq+mjB/Uo7XSUhgzLt/nfGENjHHm1Ay/loHKXOJlx5JDg=="/>
         </item>
     </channel>
 </rss>
